@@ -133,6 +133,9 @@ jenkins:
                   - "GROUP:Overall/Administer:lf-releng"
                   - "GROUP:Overall/Administer:lf-sysops"
 
+                  # OpenSearch maintainers
+                  - "GROUP:Overall/Administer:opensearch-github-opensearch-maintainers"
+
             # Kubernetes cloud configuration for dynamic build agents
             clouds:
               - kubernetes:
