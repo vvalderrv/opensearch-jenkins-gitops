@@ -246,7 +246,7 @@ jenkins:
                                 value: "/usr/lib/jvm/temurin-24-jdk-amd64"
                               - key: JAVA25_HOME
                                 value: "/usr/lib/jvm/temurin-25-jdk-amd64"
-                      iamInstanceProfile: "arn:aws:iam::156041419073:role/opensearch-jenkins-staging-agent-node-role"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-staging-agent-node-role"
                     - ami: "ami-057958fcf37e192f1"
                       amiType:
                         unixData:
@@ -366,7 +366,7 @@ jenkins:
                           value: "Jenkins-Staging/AgentNode/Jenkins-Agent-AL2023-X64-M54xlarge-Docker-Host"
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-AL2023-X64-M54xlarge-Docker-Host"
-                      iamInstanceProfile: "arn:aws:iam::156041419073:role/opensearch-jenkins-staging-agent-node-role"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-staging-agent-node-role"
                     - ami: "ami-064a204f1888da70b"
                       amiType:
                         unixData:
@@ -410,7 +410,7 @@ jenkins:
                           value: "Jenkins-Staging/AgentNode/Jenkins-Agent-AL2023-Arm64-M6g4xlarge-Docker-Host"
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-AL2023-Arm64-M6g4xlarge-Docker-Host"
-                      iamInstanceProfile: "arn:aws:iam::156041419073:role/opensearch-jenkins-staging-agent-node-role"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-staging-agent-node-role"
 
         credentials-config: |
           credentials:
