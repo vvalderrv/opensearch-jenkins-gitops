@@ -343,9 +343,9 @@ jenkins:
                 - credentials:
                   # 1Password Service Account Token (standard string credential)
                   - string:
-                      id: "onepassword-service-account"
+                      id: "opensearch-1password-service-account"
                       description: "1Password service account token for secret access"
-                      secret: "${ONEPASSWORD_SA_TOKEN}"
+                      secret: "${OPENSEARCH_ONEPASSWORD_SA_TOKEN}"
 
                   # GitHub Service Account Token for CI/CD Operations
                   - string:
@@ -517,13 +517,6 @@ jenkins:
         value: "https://sso.linuxfoundation.org/samlp/metadata/BLgSYAt8E0oXf5EJSWxeuAnUP2JZUg46"
       - name: SAML_LOGOUT_URL
         value: "https://sso.linuxfoundation.org/samlp/BLgSYAt8E0oXf5EJSWxeuAnUP2JZUg46/logout"
-
-      # LF Releng 1Password Service Account Token
-      - name: ONEPASSWORD_SA_TOKEN
-        valueFrom:
-          secretKeyRef:
-            name: onepassword-sa-token
-            key: token
 
       # Opensearch 1Password Service Account Token (ESO-managed from 1Password)
       - name: OPENSEARCH_ONEPASSWORD_SA_TOKEN
