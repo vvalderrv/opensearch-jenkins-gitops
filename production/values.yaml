@@ -390,6 +390,11 @@ jenkins:
 
         unclassified-config: |
           unclassified:
+            1Password Config:
+              config:
+                opCLIPath: "/usr/local/bin"
+                serviceAccountCredentialId: "opensearch-1password-service-account"
+
             # GitHub plugin configuration
             gitHubConfiguration:
               apiRateLimitChecker: ThrottleForNormalize
