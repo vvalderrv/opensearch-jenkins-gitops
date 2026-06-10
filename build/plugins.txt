@@ -1,4 +1,5 @@
 # Jenkins installed plugins
+# Get with: `Jenkins.instance.pluginManager.plugins.each { println "${it.shortName}:${it.version}" }`
 ace-editor:1.1
 adoptopenjdk:146.v1898676a_f04e
 ansicolor:1.0.6
