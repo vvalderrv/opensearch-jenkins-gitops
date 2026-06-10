@@ -179,7 +179,7 @@ jenkins:
                   useInstanceProfileForCredentials: false
                   sshKeysCredentialsId: "opensearch-ec2-key"
                   templates:
-                    - ami: "ami-0a0054390037a45f4"
+                    - ami: "ami-0be993abb232bc455"
                       amiType:
                         unixData:
                           sshPort: "22"
@@ -247,7 +247,7 @@ jenkins:
                               - key: JAVA25_HOME
                                 value: "/usr/lib/jvm/temurin-25-jdk-amd64"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-057958fcf37e192f1"
+                    - ami: "ami-0cc040b02d578cf5a"
                       amiType:
                         unixData:
                           sshPort: "22"
@@ -291,7 +291,7 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-AL2023-X64-M54xlarge-Docker-Host"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-064a204f1888da70b"
+                    - ami: "ami-0b8167ed2efa3500a"
                       amiType:
                         unixData:
                           sshPort: "22"
@@ -334,6 +334,148 @@ jenkins:
                           value: "Jenkins-Prod/AgentNode/Jenkins-Agent-AL2023-Arm64-M6g4xlarge-Docker-Host"
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-AL2023-Arm64-M6g4xlarge-Docker-Host"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
+                    - ami: "ami-0acbea9c898877295"
+                      amiType:
+                        windowsData:
+                          allowSelfSignedCertificate: false
+                          bootDelay: "180"
+                          specifyPassword: false
+                          useHTTPS: false
+                      associatePublicIp: false
+                      connectBySSHProcess: false
+                      connectionStrategy: PRIVATE_IP
+                      customDeviceMapping: "/dev/sda1=:600:true:::encrypted"
+                      deleteRootOnTermination: true
+                      description: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Host"
+                      ebsEncryptRootVolume: ENCRYPTED
+                      ebsOptimized: true
+                      hostKeyVerificationStrategy: OFF
+                      idleTerminationMinutes: "120"
+                      initScript: >
+                        echo %USERNAME% && dockerd --register-service && net start docker && echo started docker deamon && docker ps &&
+                        echo initializing docker images now waiting for 5min && git clone https://github.com/opensearch-project/opensearch-build.git &&
+                        bash.exe -c "docker run --rm -it  --name docker-windows-test -d `opensearch-build/docker/ci/get-ci-images.sh
+                        -p windows2019 -u opensearch -t build | head -1` bash.exe && sleep 5" && docker exec docker-windows-test whoami &&
+                        docker ps && docker stop docker-windows-test && docker ps && rm -rf opensearch-build
+                      labelString: "Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Host"
+                      launchTimeoutStr: "1600"
+                      maxTotalUses: 10
+                      metadataEndpointEnabled: true
+                      metadataHopsLimit: "2"
+                      metadataTokensRequired: true
+                      minimumNumberOfInstances: 0
+                      minimumNumberOfSpareInstances: 1
+                      mode: "EXCLUSIVE"
+                      monitoring: false
+                      numExecutors: 3
+                      remoteAdmin: "Administrator"
+                      remoteFS: "C:/Users/Administrator/jenkins"
+                      securityGroups: "jenkins-worker"
+                      subnetId: "subnet-04399db8294cd0293 subnet-0ef5970bb206ba8d6 subnet-0134f063a963ef06e"
+                      stopOnTerminate: false
+                      t2Unlimited: false
+                      tenancy: Default
+                      type: "M54xlarge"
+                      useEphemeralDevices: false
+                      tags:
+                        - name: Name
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Host"
+                        - name: type
+                          value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Host"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
+                    - ami: "ami-0acbea9c898877295"
+                      amiType:
+                        windowsData:
+                          allowSelfSignedCertificate: false
+                          bootDelay: "180"
+                          specifyPassword: false
+                          useHTTPS: false
+                      associatePublicIp: false
+                      connectBySSHProcess: false
+                      connectionStrategy: PRIVATE_IP
+                      customDeviceMapping: "/dev/sda1=:300:true:::encrypted"
+                      deleteRootOnTermination: true
+                      description: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
+                      ebsEncryptRootVolume: ENCRYPTED
+                      ebsOptimized: true
+                      hostKeyVerificationStrategy: OFF
+                      idleTerminationMinutes: "120"
+                      initScript: >
+                        echo %USERNAME% && dockerd --register-service && net start docker && echo started docker deamon && docker ps &&
+                        echo initializing docker images now waiting for 5min && git clone https://github.com/opensearch-project/opensearch-build.git &&
+                        bash.exe -c "docker run --rm -it  --name docker-windows-test -d `opensearch-build/docker/ci/get-ci-images.sh
+                        -p windows2019 -u opensearch -t build | head -1` bash.exe && sleep 5" && docker exec docker-windows-test whoami &&
+                        docker ps && docker stop docker-windows-test && docker ps && rm -rf opensearch-build
+                      labelString: "Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
+                      launchTimeoutStr: "1600"
+                      maxTotalUses: 10
+                      metadataEndpointEnabled: true
+                      metadataHopsLimit: "2"
+                      metadataTokensRequired: true
+                      minimumNumberOfInstances: 0
+                      minimumNumberOfSpareInstances: 0
+                      mode: "EXCLUSIVE"
+                      monitoring: false
+                      numExecutors: 1
+                      remoteAdmin: "Administrator"
+                      remoteFS: "C:/Users/Administrator/jenkins"
+                      securityGroups: "jenkins-worker"
+                      subnetId: "subnet-04399db8294cd0293 subnet-0ef5970bb206ba8d6 subnet-0134f063a963ef06e"
+                      stopOnTerminate: false
+                      t2Unlimited: false
+                      tenancy: Default
+                      type: "M54xlarge"
+                      useEphemeralDevices: false
+                      tags:
+                        - name: Name
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
+                        - name: type
+                          value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
+                    - ami: "ami-0acbea9c898877295"
+                      amiType:
+                        windowsData:
+                          allowSelfSignedCertificate: false
+                          bootDelay: "180"
+                          specifyPassword: false
+                          useHTTPS: false
+                      associatePublicIp: false
+                      connectBySSHProcess: false
+                      connectionStrategy: PRIVATE_IP
+                      customDeviceMapping: "/dev/sda1=:300:true:::encrypted"
+                      deleteRootOnTermination: true
+                      description: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
+                      ebsEncryptRootVolume: ENCRYPTED
+                      ebsOptimized: true
+                      hostKeyVerificationStrategy: OFF
+                      idleTerminationMinutes: "120"
+                      initScript: "echo"
+                      labelString: "Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
+                      launchTimeoutStr: "1600"
+                      maxTotalUses: 1
+                      metadataEndpointEnabled: true
+                      metadataHopsLimit: "2"
+                      metadataTokensRequired: true
+                      minimumNumberOfInstances: 0
+                      minimumNumberOfSpareInstances: 0
+                      mode: "EXCLUSIVE"
+                      monitoring: false
+                      numExecutors: 1
+                      remoteAdmin: "Administrator"
+                      remoteFS: "C:/Users/Administrator/jenkins"
+                      securityGroups: "jenkins-worker"
+                      subnetId: "subnet-04399db8294cd0293 subnet-0ef5970bb206ba8d6 subnet-0134f063a963ef06e"
+                      stopOnTerminate: false
+                      t2Unlimited: false
+                      tenancy: Default
+                      type: "C524xlarge"
+                      useEphemeralDevices: false
+                      tags:
+                        - name: Name
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
+                        - name: type
+                          value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
 
         credentials-config: |
