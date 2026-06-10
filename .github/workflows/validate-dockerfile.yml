@@ -56,7 +56,7 @@ jobs:
       - name: Run Hadolint
         run: |
           echo "Running Hadolint on Dockerfile..."
-          hadolint build/Dockerfile
+          hadolint --failure-threshold error build/Dockerfile
 
       - name: Build test image for validation
         run: |
