@@ -78,3 +78,4 @@ pipeline-utility-steps
 blueocean
 github-oauth
 onepassword-secrets
+next-build-number
