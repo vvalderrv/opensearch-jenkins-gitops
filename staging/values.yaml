@@ -354,12 +354,14 @@ jenkins:
                       idleTerminationMinutes: "120"
                       initScript: >
                         echo %USERNAME% && dockerd --register-service && net start docker && echo started docker deamon && docker ps &&
-                        echo initializing docker images now waiting for 5min && git clone https://github.com/opensearch-project/opensearch-build.git &&
-                        bash.exe -c "docker run --rm -it  --name docker-windows-test -d `opensearch-build/docker/ci/get-ci-images.sh
-                        -p windows2019 -u opensearch -t build | head -1` bash.exe && sleep 5" && docker exec docker-windows-test whoami &&
-                        docker ps && docker stop docker-windows-test && docker ps && rm -rf opensearch-build
+                        echo initializing docker images now waiting for 5min &&
+                        curl.exe -SfLO https://raw.githubusercontent.com/opensearch-project/opensearch-build/refs/heads/main/docker/ci/get-ci-images.sh &&
+                        bash.exe -c "chmod 755 ./get-ci-images.sh && IMAGE=$(./get-ci-images.sh -p windows2019 -u opensearch -t build | head -1)
+                        && echo IMAGE=$IMAGE && docker pull $IMAGE && docker run --rm -it --name docker-windows-test -d $IMAGE bash.exe
+                        && sleep 5 && docker exec docker-windows-test whoami && docker ps && docker stop docker-windows-test && docker ps
+                        && rm -v ./get-ci-images.sh"
                       labelString: "Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Host"
-                      launchTimeoutStr: "1600"
+                      launchTimeoutStr: "1700"
                       maxTotalUses: 10
                       metadataEndpointEnabled: true
                       metadataHopsLimit: "2"
@@ -403,12 +405,14 @@ jenkins:
                       idleTerminationMinutes: "120"
                       initScript: >
                         echo %USERNAME% && dockerd --register-service && net start docker && echo started docker deamon && docker ps &&
-                        echo initializing docker images now waiting for 5min && git clone https://github.com/opensearch-project/opensearch-build.git &&
-                        bash.exe -c "docker run --rm -it  --name docker-windows-test -d `opensearch-build/docker/ci/get-ci-images.sh
-                        -p windows2019 -u opensearch -t build | head -1` bash.exe && sleep 5" && docker exec docker-windows-test whoami &&
-                        docker ps && docker stop docker-windows-test && docker ps && rm -rf opensearch-build
+                        echo initializing docker images now waiting for 5min &&
+                        curl.exe -SfLO https://raw.githubusercontent.com/opensearch-project/opensearch-build/refs/heads/main/docker/ci/get-ci-images.sh &&
+                        bash.exe -c "chmod 755 ./get-ci-images.sh && IMAGE=$(./get-ci-images.sh -p windows2019 -u opensearch -t build | head -1)
+                        && echo IMAGE=$IMAGE && docker pull $IMAGE && docker run --rm -it --name docker-windows-test -d $IMAGE bash.exe
+                        && sleep 5 && docker exec docker-windows-test whoami && docker ps && docker stop docker-windows-test && docker ps
+                        && rm -v ./get-ci-images.sh"
                       labelString: "Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
-                      launchTimeoutStr: "1600"
+                      launchTimeoutStr: "1700"
                       maxTotalUses: 10
                       metadataEndpointEnabled: true
                       metadataHopsLimit: "2"
@@ -433,7 +437,7 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-staging-agent-node-role"
-                    - ami: "ami-0acbea9c898877295"
+                    - ami: "ami-046dd593593ebe519"
                       amiType:
                         windowsData:
                           allowSelfSignedCertificate: false
@@ -452,7 +456,7 @@ jenkins:
                       idleTerminationMinutes: "120"
                       initScript: "echo"
                       labelString: "Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
-                      launchTimeoutStr: "1600"
+                      launchTimeoutStr: "1700"
                       maxTotalUses: 1
                       metadataEndpointEnabled: true
                       metadataHopsLimit: "2"
