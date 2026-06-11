@@ -490,7 +490,7 @@ jenkins:
                   # 1Password Service Account Token (standard string credential)
                   - string:
                       id: "opensearch-1password-service-account"
-                      description: "1Password service account token for secret access"
+                      description: "1Password service account token for secret access on production"
                       secret: "${OPENSEARCH_ONEPASSWORD_SA_TOKEN}"
 
                   # GitHub Service Account Token for CI/CD Operations
