@@ -437,7 +437,7 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Builder"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-0acbea9c898877295"
+                    - ami: "ami-046dd593593ebe519"
                       amiType:
                         windowsData:
                           allowSelfSignedCertificate: false
