@@ -489,9 +489,9 @@ jenkins:
                 - credentials:
                   # 1Password Service Account Token (standard string credential)
                   - string:
-                      id: "opensearch-1password-service-account"
-                      description: "1Password service account token for secret access"
-                      secret: "${OPENSEARCH_ONEPASSWORD_SA_TOKEN}"
+                      id: "opensearch-1password-service-account-staging"
+                      description: "1Password service account token for secret access on staging"
+                      secret: "${OPENSEARCH_ONEPASSWORD_SA_TOKEN_STAGING}"
 
                   # GitHub Service Account Token for CI/CD Operations
                   - string:
@@ -655,10 +655,10 @@ jenkins:
       value: "https://sso.linuxfoundation.org/samlp/Sa8MIoI91JUE3154tjDzTATsEeiehGaZ/logout"
 
     # Opensearch 1Password Service Account Token (ESO-managed from 1Password)
-    - name: OPENSEARCH_ONEPASSWORD_SA_TOKEN
+    - name: OPENSEARCH_ONEPASSWORD_SA_TOKEN_STAGING
       valueFrom:
         secretKeyRef:
-          name: opensearch-1password-sa-token
+          name: opensearch-1password-sa-token-staging
           key: token
 
     # EC2 SSH Private Key (ESO-managed from 1Password)
