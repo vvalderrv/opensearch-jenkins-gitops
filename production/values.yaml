@@ -490,13 +490,13 @@ jenkins:
                       connectionStrategy: PRIVATE_IP
                       customDeviceMapping: "/dev/sda1=:300:true:gp3::encrypted"
                       deleteRootOnTermination: true
-                      description: "jenkinsAgentNode-Jenkins-Agent-MacOS14-X64-Mac1Metal-Multi-Host"
+                      description: "jenkinsAgentNode-Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
                       ebsEncryptRootVolume: ENCRYPTED
                       ebsOptimized: true
                       hostKeyVerificationStrategy: OFF
                       idleTerminationMinutes: "720"
                       initScript: "echo"
-                      labelString: "Jenkins-Agent-MacOS14-X64-Mac1Metal-Multi-Host"
+                      labelString: "Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
                       launchTimeoutStr: "1000"
                       maxTotalUses: 20
                       metadataEndpointEnabled: true
@@ -518,9 +518,9 @@ jenkins:
                       useEphemeralDevices: false
                       tags:
                         - name: Name
-                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-MacOS14-X64-Mac1Metal-Multi-Host"
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
                         - name: type
-                          value: "jenkinsAgentNode-Jenkins-Agent-MacOS14-X64-Mac1Metal-Multi-Host"
+                          value: "jenkinsAgentNode-Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
                       nodeProperties:
                         - envVars:
                             env:
@@ -536,13 +536,13 @@ jenkins:
                       connectionStrategy: PRIVATE_IP
                       customDeviceMapping: "/dev/sda1=:300:true:gp3::encrypted"
                       deleteRootOnTermination: true
-                      description: "jenkinsAgentNode-Jenkins-Agent-MacOS14-ARM64-Mac2M2Metal-Multi-Host"
+                      description: "jenkinsAgentNode-Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
                       ebsEncryptRootVolume: ENCRYPTED
                       ebsOptimized: true
                       hostKeyVerificationStrategy: OFF
                       idleTerminationMinutes: "720"
                       initScript: "echo"
-                      labelString: "Jenkins-Agent-MacOS14-ARM64-Mac2M2Metal-Multi-Host"
+                      labelString: "Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
                       launchTimeoutStr: "1000"
                       maxTotalUses: 20
                       metadataEndpointEnabled: true
@@ -564,9 +564,9 @@ jenkins:
                       useEphemeralDevices: false
                       tags:
                         - name: Name
-                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-MacOS14-ARM64-Mac2M2Metal-Multi-Host"
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
                         - name: type
-                          value: "jenkinsAgentNode-Jenkins-Agent-MacOS14-ARM64-Mac2M2Metal-Multi-Host"
+                          value: "jenkinsAgentNode-Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
                       nodeProperties:
                         - envVars:
                             env:
