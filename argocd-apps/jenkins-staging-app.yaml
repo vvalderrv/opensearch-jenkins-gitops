@@ -5,13 +5,16 @@ metadata:
   namespace: argocd
 spec:
   project: jenkins
-  source:
-    repoURL: https://github.com/opensearch-project/jenkins-gitops
-    targetRevision: main
-    path: base/jenkins
-    helm:
-      valueFiles:
-        - ../../staging/values.yaml
+  sources:
+    - repoURL: https://github.com/opensearch-project/jenkins-gitops
+      targetRevision: main
+      path: base/jenkins
+      helm:
+        valueFiles:
+          - ../../staging/values.yaml
+    - repoURL: https://github.com/opensearch-project/jenkins-gitops
+      targetRevision: main
+      path: custom-resources/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: jenkins-staging

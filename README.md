@@ -41,8 +41,11 @@ jenkins-gitops/
 ├── argocd-apps/               # ArgoCD Application definitions
 ├── base/jenkins/              # Base Helm chart and JCasC configuration
 ├── build/                     # Docker image build (Dockerfile, plugins.txt)
-├── staging/                   # Staging environment overrides
-├── production/                # Production environment overrides
+├── staging/                   # Staging environment Helm value overrides
+├── production/                # Production environment Helm value overrides
+├── custom-resources/          # Raw Kubernetes manifests (ExternalSecrets, etc.)
+│   ├── staging/               # Staging-only resources
+│   └── production/            # Production-only resources
 └── docs/                      # Documentation
 ```
 
