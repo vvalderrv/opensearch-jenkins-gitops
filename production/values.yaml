@@ -481,6 +481,98 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
+                    - ami: "ami-09475ac893268ded7"
+                      amiType:
+                        macData:
+                          sshPort: "22"
+                      associatePublicIp: false
+                      connectBySSHProcess: false
+                      connectionStrategy: PRIVATE_IP
+                      customDeviceMapping: "/dev/sda1=:300:true:gp3::encrypted"
+                      deleteRootOnTermination: true
+                      description: "jenkinsAgentNode-Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
+                      ebsEncryptRootVolume: ENCRYPTED
+                      ebsOptimized: true
+                      hostKeyVerificationStrategy: OFF
+                      idleTerminationMinutes: "720"
+                      initScript: "echo"
+                      labelString: "Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
+                      launchTimeoutStr: "1000"
+                      maxTotalUses: 20
+                      metadataEndpointEnabled: true
+                      metadataHopsLimit: "2"
+                      metadataTokensRequired: true
+                      minimumNumberOfInstances: 0
+                      minimumNumberOfSpareInstances: 0
+                      mode: "EXCLUSIVE"
+                      monitoring: true
+                      numExecutors: 3
+                      remoteAdmin: "ec2-user"
+                      remoteFS: "/var/jenkins"
+                      securityGroups: "jenkins-worker"
+                      subnetId: "subnet-04399db8294cd0293"
+                      stopOnTerminate: false
+                      t2Unlimited: false
+                      tenancy: Host
+                      type: "Mac1Metal"
+                      useEphemeralDevices: false
+                      tags:
+                        - name: Name
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
+                        - name: type
+                          value: "jenkinsAgentNode-Jenkins-Agent-MacOS14-X64-Mac1-Multi-Host"
+                      nodeProperties:
+                        - envVars:
+                            env:
+                              - key: JENKINS_HOME_PATH
+                                value: "/var/jenkins"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
+                    - ami: "ami-035f9d6e9a3ceef27"
+                      amiType:
+                        macData:
+                          sshPort: "22"
+                      associatePublicIp: false
+                      connectBySSHProcess: false
+                      connectionStrategy: PRIVATE_IP
+                      customDeviceMapping: "/dev/sda1=:300:true:gp3::encrypted"
+                      deleteRootOnTermination: true
+                      description: "jenkinsAgentNode-Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
+                      ebsEncryptRootVolume: ENCRYPTED
+                      ebsOptimized: true
+                      hostKeyVerificationStrategy: OFF
+                      idleTerminationMinutes: "720"
+                      initScript: "echo"
+                      labelString: "Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
+                      launchTimeoutStr: "1000"
+                      maxTotalUses: 20
+                      metadataEndpointEnabled: true
+                      metadataHopsLimit: "2"
+                      metadataTokensRequired: true
+                      minimumNumberOfInstances: 0
+                      minimumNumberOfSpareInstances: 0
+                      mode: "EXCLUSIVE"
+                      monitoring: true
+                      numExecutors: 2
+                      remoteAdmin: "ec2-user"
+                      remoteFS: "/var/jenkins"
+                      securityGroups: "jenkins-worker"
+                      subnetId: "subnet-04399db8294cd0293"
+                      stopOnTerminate: false
+                      t2Unlimited: false
+                      tenancy: Host
+                      type: "Mac2M2Metal"
+                      useEphemeralDevices: false
+                      tags:
+                        - name: Name
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
+                        - name: type
+                          value: "jenkinsAgentNode-Jenkins-Agent-MacOS14-ARM64-Mac2-Multi-Host"
+                      nodeProperties:
+                        - envVars:
+                            env:
+                              - key: JENKINS_HOME_PATH
+                                value: "/var/jenkins"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
 
         credentials-config: |
           credentials:
