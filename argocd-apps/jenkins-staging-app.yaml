@@ -5,13 +5,24 @@ metadata:
   namespace: argocd
 spec:
   project: jenkins
-  source:
-    repoURL: https://github.com/opensearch-project/jenkins-gitops
-    targetRevision: main
-    path: base/jenkins
-    helm:
-      valueFiles:
-        - ../../staging/values.yaml
+  sources:
+    # helm chart source
+    - repoURL: https://github.com/opensearch-project/jenkins-gitops
+      targetRevision: main
+      path: base/jenkins
+      helm:
+        valueFiles:
+          - $gitops/staging/values.yaml
+
+    # values source for chart above (via `ref`)
+    - repoURL: https://github.com/opensearch-project/jenkins-gitops
+      targetRevision: main
+      ref: gitops
+
+    # additional manifests outside the chart
+    - repoURL: https://github.com/opensearch-project/jenkins-gitops
+      targetRevision: main
+      path: custom-resources/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: jenkins-staging
