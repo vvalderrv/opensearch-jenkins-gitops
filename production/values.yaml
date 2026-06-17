@@ -335,7 +335,7 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-AL2023-Arm64-M6g4xlarge-Docker-Host"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-0acbea9c898877295"
+                    - ami: "ami-072cf28625cc45a6c"
                       amiType:
                         windowsData:
                           allowSelfSignedCertificate: false
@@ -386,7 +386,7 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-M54xlarge-Docker-Host"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-0acbea9c898877295"
+                    - ami: "ami-072cf28625cc45a6c"
                       amiType:
                         windowsData:
                           allowSelfSignedCertificate: false
@@ -481,7 +481,7 @@ jenkins:
                         - name: type
                           value: "jenkinsAgentNode-Jenkins-Agent-Windows2019-X64-C524xlarge-Single-Host"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-09475ac893268ded7"
+                    - ami: "ami-0fe2458cea97a230c"
                       amiType:
                         macData:
                           sshPort: "22"
@@ -527,7 +527,7 @@ jenkins:
                               - key: JENKINS_HOME_PATH
                                 value: "/var/jenkins"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
-                    - ami: "ami-035f9d6e9a3ceef27"
+                    - ami: "ami-0e3e8fe8c30d24a81"
                       amiType:
                         macData:
                           sshPort: "22"
