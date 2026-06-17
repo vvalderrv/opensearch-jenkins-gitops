@@ -766,7 +766,7 @@ jenkins:
         valueFrom:
           secretKeyRef:
             name: opensearch-1password-sa-token-release
-            key: token
+            key: credential
 
       # EC2 SSH Private Key (ESO-managed from 1Password)
       - name: OPENSEARCH_EC2_PRIVATE_KEY
