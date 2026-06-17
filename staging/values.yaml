@@ -533,7 +533,7 @@ jenkins:
             1Password Config:
               config:
                 opCLIPath: "/usr/local/bin"
-                serviceAccountCredentialId: "opensearch-1password-service-account"
+                serviceAccountCredentialId: "opensearch-1password-service-account-staging"
 
             # GitHub plugin configuration
             gitHubConfiguration:
