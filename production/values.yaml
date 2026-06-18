@@ -96,6 +96,11 @@ jenkins:
                     - key: "SAML_LOGOUT_URL"
                       value: '${SAML_LOGOUT_URL}'
 
+            # Safe html formatter
+            markupFormatter:
+              rawHtml:
+                disableSyntaxHighlighting: true
+
             # CSRF protection configuration
             crumbIssuer:
               standard:
