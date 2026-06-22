@@ -252,6 +252,74 @@ jenkins:
                               - key: JAVA25_HOME
                                 value: "/usr/lib/jvm/temurin-25-jdk-amd64"
                       iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
+                    - ami: "ami-0be993abb232bc455"
+                      amiType:
+                        unixData:
+                          sshPort: "22"
+                      associatePublicIp: false
+                      connectBySSHProcess: false
+                      connectionStrategy: PRIVATE_IP
+                      customDeviceMapping: "/dev/sda1=:300:true:::encrypted"
+                      deleteRootOnTermination: true
+                      description: "jenkinsAgentNode-Jenkins-Agent-Ubuntu2404-X64-M7a8xlarge-Single-Host"
+                      ebsEncryptRootVolume: ENCRYPTED
+                      ebsOptimized: false
+                      hostKeyVerificationStrategy: OFF
+                      idleTerminationMinutes: "60"
+                      initScript: >
+                        docker ps && sudo apt-get update -y && sudo env "DEBIAN_FRONTEND=noninteractive" apt-get upgrade -y &&
+                        sudo update-alternatives --set "java" "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java" && java -version
+                      labelString: "Jenkins-Agent-Ubuntu2404-X64-M7a8xlarge-Single-Host gradle"
+                      launchTimeoutStr: "300"
+                      maxTotalUses: 1
+                      metadataEndpointEnabled: true
+                      metadataHopsLimit: "2"
+                      metadataTokensRequired: true
+                      minimumNumberOfInstances: 0
+                      minimumNumberOfSpareInstances: 1
+                      mode: "EXCLUSIVE"
+                      monitoring: false
+                      numExecutors: 1
+                      remoteAdmin: "ubuntu"
+                      remoteFS: "/var/jenkins"
+                      securityGroups: "jenkins-worker"
+                      subnetId: "subnet-04399db8294cd0293 subnet-0ef5970bb206ba8d6 subnet-0134f063a963ef06e"
+                      stopOnTerminate: false
+                      t2Unlimited: false
+                      tenancy: Default
+                      type: "m7a.8xlarge"
+                      useEphemeralDevices: false
+                      tags:
+                        - name: Name
+                          value: "Jenkins-Prod/AgentNode/Jenkins-Agent-Ubuntu2404-X64-M7a8xlarge-Single-Host"
+                        - name: type
+                          value: "jenkinsAgentNode-Jenkins-Agent-Ubuntu2404-X64-M7a8xlarge-Single-Host"
+                      nodeProperties:
+                        - envVars:
+                            env:
+                              - key: JENKINS_HOME_PATH
+                                value: "/var/jenkins"
+                              - key: JAVA8_HOME
+                                value: "/usr/lib/jvm/temurin-8-jdk-amd64"
+                              - key: JAVA11_HOME
+                                value: "/usr/lib/jvm/temurin-11-jdk-amd64"
+                              - key: JAVA14_HOME
+                                value: "/usr/lib/jvm/adoptopenjdk-14-amd64"
+                              - key: JAVA17_HOME
+                                value: "/usr/lib/jvm/temurin-17-jdk-amd64"
+                              - key: JAVA19_HOME
+                                value: "/usr/lib/jvm/jdk-19"
+                              - key: JAVA20_HOME
+                                value: "/usr/lib/jvm/jdk-20"
+                              - key: JAVA21_HOME
+                                value: "/usr/lib/jvm/temurin-21-jdk-amd64"
+                              - key: JAVA23_HOME
+                                value: "/usr/lib/jvm/temurin-23-jdk-amd64"
+                              - key: JAVA24_HOME
+                                value: "/usr/lib/jvm/temurin-24-jdk-amd64"
+                              - key: JAVA25_HOME
+                                value: "/usr/lib/jvm/temurin-25-jdk-amd64"
+                      iamInstanceProfile: "arn:aws:iam::156041419073:instance-profile/opensearch-jenkins-production-agent-node-role"
                     - ami: "ami-0cc040b02d578cf5a"
                       amiType:
                         unixData:
