@@ -276,7 +276,7 @@ jenkins:
                       metadataHopsLimit: "2"
                       metadataTokensRequired: true
                       minimumNumberOfInstances: 0
-                      minimumNumberOfSpareInstances: 1
+                      minimumNumberOfSpareInstances: 0
                       mode: "EXCLUSIVE"
                       monitoring: false
                       numExecutors: 1
